@@ -25,10 +25,12 @@ fun main() {
         .post("/api/v1/login", serverCtx.loginHandler, roles(ANY))
         .get("/api/v1/users", serverCtx.getUsersHandler, roles(ADMIN))
         .post("/api/v1/users", serverCtx.createUserHandler, roles(ADMIN))
-        .post("/api/v1/books/import", serverCtx.uploadFileHandler, roles(ADMIN))
+        .post("/api/v1/books/upload", serverCtx.uploadFileHandler, roles(ADMIN))
         .post("/api/v1/books/reimport", serverCtx.reimportFileHandler, roles(ADMIN))
         .get("/api/v1/books", serverCtx.allBooksHandler, roles(LOGGED_IN))
+        .get("/api/v1/books/:id/view", serverCtx.bookContentHandler, roles(LOGGED_IN))
         .get("/api/v1/books/:id/view/:elementid", serverCtx.bookContentHandler, roles(LOGGED_IN))
+        .get("/api/v1/books/:id/cover", serverCtx.coverHandler, roles(ANY))
         .get("/api/v1/books/:id/marks") { TODO() }
         .post("/api/v1/books/:id/marks") { TODO() }
         .get("/api/v1/books/:id/notes") { TODO() }

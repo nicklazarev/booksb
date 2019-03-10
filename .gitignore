@@ -2,3 +2,4 @@
 /static/
 /uploaded_books/
 *.iml
+/ui/node_modules/

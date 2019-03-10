@@ -8,6 +8,12 @@ class AllBooksHandler(
     private val booksRepository: BooksRepository
 ): Handler {
     override fun handle(ctx: Context) {
-        ctx.json(booksRepository.findAll())
+        val name = ctx.queryParam("name")
+        val result = if (name.isNullOrEmpty()) {
+            booksRepository.findAll()
+        } else {
+            booksRepository.findByName(name)
+        }
+        ctx.json(result)
     }
 }

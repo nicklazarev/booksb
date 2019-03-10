@@ -1,6 +1,7 @@
 package ru.booksb.server
 
 import com.mongodb.client.MongoDatabase
+import io.javalin.Handler
 import io.javalin.security.AccessManager
 import ru.booksb.config.Environment
 import ru.booksb.epublib.EpubParser
@@ -9,6 +10,7 @@ import ru.booksb.server.handlers.AllBooksHandler
 import ru.booksb.server.handlers.BookContentHandler
 import ru.booksb.server.handlers.CreateUserHandler
 import ru.booksb.server.access.DefaultAccessManager
+import ru.booksb.server.handlers.CoverHandler
 import ru.booksb.server.handlers.FileSessionHandler
 import ru.booksb.server.handlers.GetUsersHandler
 import ru.booksb.server.handlers.LoginHandler
@@ -82,6 +84,9 @@ class ServerCtx {
     }
     val accessManager: AccessManager by lazy {
         DefaultAccessManager()
+    }
+    val coverHandler: Handler by lazy {
+        CoverHandler(appctx.env.booksStaticPath)
     }
 
 }
