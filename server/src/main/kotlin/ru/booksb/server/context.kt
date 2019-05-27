@@ -10,6 +10,7 @@ import ru.booksb.server.handlers.AllBooksHandler
 import ru.booksb.server.handlers.BookContentHandler
 import ru.booksb.server.handlers.CreateUserHandler
 import ru.booksb.server.access.DefaultAccessManager
+import ru.booksb.server.handlers.BooksHandler
 import ru.booksb.server.handlers.CoverHandler
 import ru.booksb.server.handlers.FileSessionHandler
 import ru.booksb.server.handlers.GetUsersHandler
@@ -70,6 +71,10 @@ class ServerCtx {
 
     val allBooksHandler by lazy {
         AllBooksHandler(storageCtx.booksRepository)
+    }
+
+    val booksHandler by lazy {
+        BooksHandler(storageCtx.booksRepository)
     }
 
     val getUsersHandler by lazy {

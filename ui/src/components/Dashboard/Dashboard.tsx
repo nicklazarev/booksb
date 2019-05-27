@@ -1,29 +1,23 @@
-import {
-    ListItem,
-    ListItemIcon,
-    ListItemText,
-} from "@material-ui/core";
+import {ListItem, ListItemIcon, ListItemText,} from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
-import Badge from "@material-ui/core/Badge";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
 import List from "@material-ui/core/List";
-import { createStyles, Theme, WithStyles, withStyles } from "@material-ui/core/styles";
-import { fade } from "@material-ui/core/styles/colorManipulator";
+import {createStyles, Theme, WithStyles, withStyles} from "@material-ui/core/styles";
+import {fade} from "@material-ui/core/styles/colorManipulator";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import UploadIcon from "@material-ui/icons/CloudUpload";
 import InboxIcon from "@material-ui/icons/Inbox";
 import MenuIcon from "@material-ui/icons/Menu";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import SearchIcon from "@material-ui/icons/Search";
 import classNames from "classnames";
 import * as React from "react";
-import { withRouter } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -163,18 +157,18 @@ class Dashboard extends React.Component<DashboardProps> {
 
     public handleDrawerOpen = () => {
         this.setState({ open: true });
-    }
+    };
 
     public handleDrawerClose = () => {
         this.setState({ open: false });
-    }
+    };
 
     public handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { onFilterChange } = this.props;
         if (onFilterChange != null) {
             onFilterChange(event.currentTarget.value);
         }
-    }
+    };
 
     public render() {
         const { classes, children } = this.props;
